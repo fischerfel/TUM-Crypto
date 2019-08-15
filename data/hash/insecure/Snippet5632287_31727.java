@@ -1,0 +1,13 @@
+        MessageDigest m=MessageDigest.getInstance("MD5");
+        StringBuffer sb = new StringBuffer();
+        if(nodeName!=null) sb.append(nodeName);
+        if(nodeParentName!=null) sb.append(nodeParentName);
+        if(nodeParentFieldName!=null) sb.append(nodeParentFieldName);
+        if(nodeRelationName!=null) sb.append(nodeRelationName);
+        if(nodeViewName!=null) sb.append(nodeViewName);
+        if(treeName!=null) sb.append(treeName);
+        if(nodeValue!=null && nodeValue.trim().length()>0) sb.append(nodeValue);
+        if(considerParentHash) sb.append(parentHash);
+        m.update(sb.toString().getBytes("UTF-8"),0,sb.toString().length());
+        BigInteger i = new BigInteger(1,m.digest());
+        hash = String.format("%1$032X", i);

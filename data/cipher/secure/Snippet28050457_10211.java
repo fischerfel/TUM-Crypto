@@ -1,0 +1,12 @@
+    byte[] input = new byte[] { (byte) 0xbe, (byte) 0xef , (byte) 0xef};
+    Cipher cipher = Cipher.getInstance("RSA");
+    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+    String mod = "B390F7412F2554387597814A25BC11BFFD95DB2D1456F1B66CDF52BCC1D20C7FF24F3CCE7B2D66E143213F64247454782A377C79C74477A28AF6C317BE 68 BC 6E 8F F0 01 D3 75 F9 36 3B 5A 71 61 C2 DF BC 2E D0 85 06 97 A5 44 21 55 2C 62 88 99 6A C6 1A F5 A9 F7 DE 21 8A BB C7 5A 14 5F 89 12 66 61 5E B8 1D 11 A2 2B 72 60 F7 60 80 83 B3 73 BA 4B C0 75 6B".replace(" ", "");
+    System.out.println(mod);
+    String exp = "010001";
+    System.out.println(exp);
+    RSAPublicKeySpec pubKeySpec = new RSAPublicKeySpec(new BigInteger(mod, 16), new BigInteger(exp,16));
+    RSAPublicKey pubKey = (RSAPublicKey) keyFactory.generatePublic(pubKeySpec);
+    cipher.init(Cipher.ENCRYPT_MODE, pubKey);
+    byte[] cipherText = cipher.doFinal(input);
+    System.out.println("cipher: " + new String(cipherText));

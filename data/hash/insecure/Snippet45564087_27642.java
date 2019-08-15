@@ -1,0 +1,1 @@
+licenseKeys = MessageDigest.getInstance("MD5").digest(tempAr).encodeHex()

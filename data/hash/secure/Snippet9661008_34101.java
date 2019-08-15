@@ -1,0 +1,17 @@
+public String computeHash(String input) throws NoSuchAlgorithmException{
+    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    digest.reset();
+    try{
+      digest.update(input.getBytes("UTF-8"));
+    } catch (UnsupportedEncodingException e){
+      e.printStackTrace();
+    }
+
+    byte[] byteData = digest.digest(input.getBytes());
+    StringBuffer sb = new StringBuffer();
+
+    for (int i = 0; i < byteData.length; i++){
+      sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+    }
+    return sb.toString();
+}

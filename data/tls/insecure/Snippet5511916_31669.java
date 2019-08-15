@@ -1,0 +1,15 @@
+HttpURLConnection connection;
+SSLContext sc = SSLContext.getInstance("TLS");
+sc.init(null, new TrustManager[] { new TrustManager() }, new SecureRandom());
+HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
+connection = (HttpsURLConnection) httpUrl.openConnection();
+connection.setRequestMethod("POST");
+connection.setRequestProperty("Content-Length", String.valueOf(requestBinary.length));
+connection.setRequestProperty("Content-Type","octet/x-application-csam");
+connection.setDoInput(true);
+connection.setDoOutput(true);
+connection.setConnectTimeout(30000);
+connection.connect();
+connection.getOutputStream().write(requestBinary);
+int responseCode = connection.getResponseCode();

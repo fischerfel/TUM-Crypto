@@ -1,0 +1,13 @@
+    SSLContext sslcontext = SSLContext.getInstance("SSL");
+    KeyStore ks = KeyStore.getInstance("BKS");
+    TrustManagerFactory trustManagerFactory =  TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+    InputStream in = getClass().getResourceAsStream("/assets/trust.bks");
+    ks.load(in,"daniere".toCharArray());
+    trustManagerFactory.init(ks);
+    sslcontext.init(null, trustManagerFactory.getTrustManagers(), null);
+    SSLSocketFactory sf = sslcontext.getSocketFactory();
+    SSLSocket s1 = (SSLSocket) sf.createSocket("10.0.0.1", 1000);
+    String key = "sdsdsd";
+    PrintWriter sockey = new PrintWriter(new BufferedWriter(new OutputStreamWriter(s1.getOutputStream())), true);
+    sockey.println(key);
+    s1.close;

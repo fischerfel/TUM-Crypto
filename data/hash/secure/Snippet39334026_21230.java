@@ -1,0 +1,12 @@
+java.security.NoSuchAlgorithmException: no such algorithm: SHA1 for provider SunJSSE
+    at sun.security.jca.GetInstance.getService(GetInstance.java:87)
+    at sun.security.jca.GetInstance.getInstance(GetInstance.java:206)
+    at java.security.Security.getImpl(Security.java:698)
+    at java.security.MessageDigest.getInstance(MessageDigest.java:227)
+    at com.itextpdf.signatures.SignUtils.getMessageDigest(SignUtils.java:134)
+    at com.itextpdf.signatures.DigestAlgorithms.getMessageDigest(DigestAlgorithms.java:182)
+    at com.itextpdf.signatures.ProviderDigest.getMessageDigest(ProviderDigest.java:69)
+    at com.itextpdf.signatures.SignUtils.getMessageDigest(SignUtils.java:127)
+    at com.itextpdf.signatures.PdfSigner.signDetached(PdfSigner.java:528)
+    at mkl.testarea.itext7.signature.AddPageAndSign.sign(AddPageAndSign.java:125)
+    at mkl.testarea.itext7.signature.AddPageAndSign.testSignLikeXinDHA(AddPageAndSign.java:81)

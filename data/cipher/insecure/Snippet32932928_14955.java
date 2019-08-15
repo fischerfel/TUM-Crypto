@@ -1,0 +1,1 @@
+cipher = Cipher.getInstance("DES/CTR/NoPadding", "BC");

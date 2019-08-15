@@ -1,0 +1,6 @@
+...    
+SSLContext sslContext = SSLContext.getInstance("TLS", "BCJSSE");
+KeyManagerFactory keyMgrFact = KeyManagerFactory.getInstance(
+                "PKIX", "BCJSSE");
+keyMgrFact.init(Utils.createServerKeyStore(), Utils.SERVER_PASSWORD);
+...

@@ -1,0 +1,13 @@
+String host = "www.google.com";
+String url = "/adsense/?sourceid=aso&subid=ZH_CN-ET-AS-ADSBY6&medium=link&hl=zh_CN";
+SSLContext ctx = SSLContext.getInstance("TLS");
+ctx.init(new KeyManager[0], new TrustManager[] {new DefaultTrustManager()}, new SecureRandom());
+SSLContext.setDefault(ctx);
+SSLSocketFactory factory = ctx.getSocketFactory();
+Socket socket = factory.createSocket(host, 443);
+BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+out.write("GET " + url + " HTTP/1.0");
+out.flush();
+out.close();
+in.close();

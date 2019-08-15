@@ -1,0 +1,12 @@
+SSLContext context = SSLContext.getInstance("TLSv1.2");
+X509Certificate cert = launcher.cert;
+PrivateKey privateKey = launcher.privateKey;
+KeyStore ks = KeyStore.getInstance("JKS");
+ks.load(null);
+ks.setCertificateEntry("cert-alias", cert);
+ks.setKeyEntry("key-alias", privateKey, "missile@supervisor".toCharArray(), new Certificate[]{cert});
+KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
+kmf.init(ks, "missile@supervisor".toCharArray());
+KeyManager[] km = kmf.getKeyManagers();
+context.init(km, null, null);
+serverSocket = context.getServerSocketFactory().createServerSocket(serverPort);

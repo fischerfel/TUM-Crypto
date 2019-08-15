@@ -1,0 +1,11 @@
+byte key[] = dbMediator.getPasswordCypher(username);
+    SecretKey key64 = new SecretKeySpec(key, "Blowfish");
+    Cipher cipheren = Cipher.getInstance("Blowfish");
+    cipheren.init(Cipher.ENCRYPT_MODE, key64);
+    Cipher cipherde = Cipher.getInstance("Blowfish");
+    cipheren.init(Cipher.DECRYPT_MODE, key64);
+    out = new ObjectOutputStream(new CipherOutputStream(socket.getOutputStream(), cipheren));
+    out.reset();
+    out.flush();
+    out.writeObject("switch");
+    in = new ObjectInputStream(new CipherInputStream(socket.getInputStream(), cipherde));

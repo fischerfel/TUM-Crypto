@@ -1,0 +1,1 @@
+MessageDigest.getInstance("SHA1")

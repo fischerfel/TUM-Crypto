@@ -1,0 +1,11 @@
+SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+KeySpec spec = new PBEKeySpec(secretkey.toCharArray(), salt, iterationCount, keyStrength);    
+SecretKey tmp = factory.generateSecret(spec);
+key = new SecretKeySpec(tmp.getEncoded(), "AES");
+dcipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+AlgorithmParameters params = dcipher.getParameters();
+iv = "0000000000000000".getBytes();
+System.out.println("IV " + new sun.misc.BASE64Encoder().encodeBuffer(iv));
+dcipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(iv));      
+byte[] decryptedData = new sun.misc.BASE64Decoder().decodeBuffer(base64EncryptedData);
+byte[] utf8 = dcipher.doFinal(decryptedData);

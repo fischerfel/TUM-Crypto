@@ -1,0 +1,1 @@
+MessageDigest.getInstance("MD5").digest((password+salt).getBytes("UTF-8"))

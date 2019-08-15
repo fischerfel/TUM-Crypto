@@ -1,0 +1,10 @@
+KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
+kpg.initialize(1024);
+KeyPair kp = kpg.genKeyPair();
+PrivateKey privateKey = kp.getPrivate();
+Cipher keyCipher = Cipher.getInstance("RSA");
+keyCipher.init(Cipher.ENCRYPT_MODE, privateKey);
+byte[] encryptedKey = keyCipher.doFinal(secKey.getEncoded());
+FileOutputStream keyStream = new FileOutputStream("key.txt");
+keyStream.write(encryptedKey);
+keyStream.close();

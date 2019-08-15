@@ -1,0 +1,11 @@
+SSLSocketFactory sslFactory = null;
+InputStream trustStore = null;
+KeyStore keyStore = null;
+trustStore = new FileInputStream("<your trust store absolute path>");
+keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+keyStore.load(trustStore, "<your trust store password>".toCharArray());
+TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+tmf.init(keyStore);
+SSLContext ctx = SSLContext.getInstance("TLS");
+ctx.init(null, tmf.getTrustManagers(), null);
+sslFactory = ctx.getSocketFactory();

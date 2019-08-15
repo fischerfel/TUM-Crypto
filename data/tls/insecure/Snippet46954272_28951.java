@@ -1,0 +1,16 @@
+            InputStream cert = context.getResources().openRawResource(R.raw.certificate);            
+            CertificateFactory cf=CertificateFactory.getInstance("X.509", "BC");
+            InputStream caInput = new BufferedInputStream(cert);
+            X509Certificate ca = (X509Certificate) cf.generateCertificate(caInput);
+            caInput.close();
+            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            keyStore.load(null);
+            keyStore.setCertificateEntry(ca.getSubjectX500Principal().getName(), ca);
+            KeyManagerFactory kmf = KeyManagerFactory.getInstance("X509");
+            kmf.init(keyStore, null);
+            KeyManager[] keyManagers = kmf.getKeyManagers();
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init(keyStore);
+            SSLContext context1 = SSLContext.getInstance("TLS");
+            context1.init(keyManagers, tmf.getTrustManagers(), null);
+            builder.sslSocketFactory(context1.getSocketFactory());

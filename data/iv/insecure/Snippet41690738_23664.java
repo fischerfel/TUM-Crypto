@@ -1,0 +1,1 @@
+c.init(Cipher.ENCRYPT_MODE, sks, new IvParameterSpec(new byte[16]));

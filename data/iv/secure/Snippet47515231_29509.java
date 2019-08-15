@@ -1,0 +1,1 @@
+IvParameterSpec ivSpec = new IvParameterSpec(hexToBytes(hexString.toString()));

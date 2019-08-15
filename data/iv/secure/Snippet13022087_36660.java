@@ -1,0 +1,1 @@
+cipher.init(mode,key,new IvParameterSpec(iv))

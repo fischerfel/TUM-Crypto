@@ -1,0 +1,1 @@
+m.init(new SecretKeySpec("anonymous&".getBytes(), "HmacSHA1"));

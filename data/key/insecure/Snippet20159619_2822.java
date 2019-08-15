@@ -1,0 +1,15 @@
+String stdiv = "1234567890123456";
+String txtinput = txtview1.getText().toString();
+String mainkey = "0000999988887777";
+byte[] key;
+key = mainkey.getBytes("UTF8");
+byte[] iv = stdiv.getBytes("UTF8");
+byte[] input = txtinput.getBytes("UTF8");
+Cipher cipher;
+cipher = Cipher.getInstance("AES/CBC/PKCS7PADDING");
+SecretKeySpec keyspec = new SecretKeySpec(key, "AES" );
+IvParameterSpec paramspec = new IvParameterSpec(iv);
+cipher.init(Cipher.ENCRYPT_MODE, keyspec, paramspec);
+byte[] result = cipher.doFinal(input);
+String str=new String(result,"UTF8");
+txtview2.setText(str);

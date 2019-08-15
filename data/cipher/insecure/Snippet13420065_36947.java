@@ -1,0 +1,1 @@
+Cipher localCipher = Cipher.getInstance("AES");

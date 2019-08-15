@@ -1,0 +1,1 @@
+ httpsConnection.setHostnameVerifier(new TrustAllHostNameVerifier ());

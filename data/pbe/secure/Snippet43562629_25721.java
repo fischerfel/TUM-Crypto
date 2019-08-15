@@ -1,0 +1,1 @@
+new PBEKeySpec(password, salt, 1000, 256)

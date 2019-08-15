@@ -1,0 +1,10 @@
+    AssetManager assetManager=activity.getAssets();
+    InputStream in=assetManager.open("certificate.crt");
+    CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+    X509Certificate certificate = (X509Certificate)certificateFactory.generateCertificate(in);
+    PublicKey publicServerKey = certificate.getPublicKey();
+    Cipher cipher = Cipher.getInstance("RSA");
+    cipher.init(Cipher.ENCRYPT_MODE,publicServerKey);
+    byte[] parametersCipher = cipher.doFinal(parameters.getBytes());
+    String encoded=new String(Base64.encode(parametersCipher, Base64.DEFAULT));
+    String parametersencrypted="data="+URLEncoder.encode(encoded,"UTF-8");

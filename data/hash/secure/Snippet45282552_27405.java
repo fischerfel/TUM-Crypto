@@ -1,0 +1,1 @@
+MessageDigest.getInstance("SHA-256").update

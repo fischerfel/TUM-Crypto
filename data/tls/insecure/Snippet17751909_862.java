@@ -1,0 +1,3 @@
+ def sslContext = SSLContext.getInstance("SSL")
+   ...
+ SSLSocketFactory sf = new org.apache.http.conn.ssl.SSLSocketFactory(sslContext, org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER)

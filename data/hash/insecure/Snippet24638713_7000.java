@@ -1,0 +1,9 @@
+MessageDigest md5 = MessageDigest.getInstance( "MD5" );
+String keyAsText = "123456";
+byte[] keyAsBytes = keyAsText.getBytes();
+byte[] digestAsBytes = md5.digest( keyAsBytes );
+String digestAsHex = DatatypeConverter.printHexBinary( digestAsBytes );
+System.out.printf( "hex(md5(\"%s\") = %s%n", keyAsText, digestAsHex );
+byte[] digestAsHexAsBytes = digestAsHex.getBytes();
+String digestAsHexAsBytesAsBase64 = DatatypeConverter.printBase64Binary( digestAsHexAsBytes );
+System.out.printf( "base64(\"%s\") = %s%n", digestAsHex, digestAsHexAsBytesAsBase64 );

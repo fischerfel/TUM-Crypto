@@ -1,0 +1,3 @@
+String key = "1234567890123456789012345678901d";
+...
+SecretKeySpec newKey = new SecretKeySpec(key.getBytes("UTF-8"), "AES");

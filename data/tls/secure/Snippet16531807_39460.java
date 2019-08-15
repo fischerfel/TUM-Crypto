@@ -1,0 +1,15 @@
+char[] passphrase = "myComplexPass1".toCharArray();
+KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
+keystore.load(new FileInputStream("cacerts"), passphrase);
+KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance("SunX509");
+keyManagerFactory.init(keystore, passphrase);
+SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+KeyManager[] keyManagers = keyManagerFactory.getKeyManagers();
+SSLContext sslContext.init(keyManagers, null, null);
+SSLServerSocketFactory sslServerSocketFactory = sslContext.getServerSocketFactory();
+SSLServerSocket sslServerSocket = (SSLServerSocket) sslServerSocketFactory.createServerSocket(port);
+sslServerSocket.setEnabledProtocols(new String [] { "TLSv1", "TLSv1.1", "TLSv1.2" });
+sslServerSocket.setUseClientMode(false);
+sslServerSocket.setWantClientAuth(false);
+sslServerSocket.setNeedClientAuth(false);
+sslSocket = (SSLSocket)sslServerSocket.accept();

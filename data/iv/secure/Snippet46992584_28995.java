@@ -1,0 +1,11 @@
+        byte[] keyPass = pass.getBytes("ASCII");
+        byte[] aesIV = new byte[16];
+        byte[] Decryptdata = Base64.decode(encodedString, Base64.NO_WRAP);
+        System.arraycopy(Decryptdata, 0, aesIV, 0, 16);
+        byte[] data = new byte[Decryptdata.length - 16];
+        System.arraycopy(Decryptdata, 16, data, 0, dataToDecrypt.length - 16);
+        Key aesKey = new SecretKeySpec(keyPass, "AES");
+        IvParameterSpec ivSpec = new IvParameterSpec(aesIV);
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+        cipher.init(Cipher.DECRYPT_MODE, aesKey, ivSpec);
+        Text = new String(cipher.doFinal(data), "UTF-8");

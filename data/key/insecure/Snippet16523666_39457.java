@@ -1,0 +1,1 @@
+SecretKey secret = new SecretKeySpec("SOME_KEY".getBytes("UTF-8"), "AES");

@@ -1,0 +1,1 @@
+KeySpec spec = new PBEKeySpec(password, salt, 64, 128);

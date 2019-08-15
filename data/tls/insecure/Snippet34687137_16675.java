@@ -1,0 +1,16 @@
+KeyStore ks = KeyStore.getInstance("JKS");
+InputStream inputStream = getClass().getResourceAsStream("cert.jks");
+ks.load(inputStream, "password".toCharArray());
+TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
+tmf.init(ks);
+SSLContext ssc = SSLContext.getInstance("TLS");
+ssc.init(null, tmf.getTrustManagers(), null);
+SSLSocketFactory factory = ssc.getSocketFactory();
+Socket socket = new Socket(Proxy.NO_PROXY);
+InetAddress host = InetAddress.getByName("<ip address of server">);
+int port = <some port>;
+socket.connect(new InetSocketAddress(host, port));
+SSLSocket ssls = (SSLSocket)factory.createSocket(socket, host.getHostAddress(), port, false);
+ssls.setUseClientMode(true);
+ssls.setNeedClientAuth(false);
+ssls.startHandshake();

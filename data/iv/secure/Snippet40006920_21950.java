@@ -1,0 +1,1 @@
+IvParameterSpec iv = new IvParameterSpec(Arrays.copyOf(encrypted_decoded_bytes, 16));

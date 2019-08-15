@@ -1,0 +1,1 @@
+this.encrypter = Cipher.getInstance("DESede/ECB/PKCS5Padding", "BC");
