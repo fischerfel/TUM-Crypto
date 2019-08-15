@@ -1,1 +1,1 @@
-Labeled code examples from Stack Overflow that apply cryptographic APIs. We'll update documentation of this repo soon. Please refer to our paper for further info https://www.usenix.org/system/files/sec19-fischer.pdf
+Labeled code examples from Stack Overflow that apply cryptographic APIs. We'll update documentation for this repo soon. Please refer to our paper for further info https://www.usenix.org/system/files/sec19-fischer.pdf
