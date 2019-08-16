@@ -1,1 +1,0 @@
-c.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));

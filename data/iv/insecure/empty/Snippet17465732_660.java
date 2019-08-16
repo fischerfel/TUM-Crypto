@@ -1,1 +1,0 @@
-IvParameterSpec iv = new IvParameterSpec(new byte[8]);
