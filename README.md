@@ -6,7 +6,7 @@ Security labeled Java code examples for usage patterns of cryptographic APIs. Al
 
 Please create an issue if you want to discuss the label of a particular sample or if you need additional data.
 
-# Paper
+## Paper
 
  Please refer to our paper for further info https://www.usenix.org/system/files/sec19-fischer.pdf. We'd be happy for you to cite it in case you use this data in your publication.
  
