@@ -4,7 +4,7 @@
 
 Security labeled Java code examples for usage patterns of cryptographic APIs. All samples were downloaded from the official Stack Overflow data dump https://archive.org/details/stackexchange.
 
-Please create an issue if you want to discuss the label of a particular sample or if you need additional data.
+Please create an issue if you want to discuss the label of a particular sample or if you need additional data. We continually update this repo.
 
 ## Paper
 
