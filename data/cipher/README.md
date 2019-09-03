@@ -1,5 +1,5 @@
 # Cipher
-Each sample has at least one usage pattern for one of the following API elements:
+Each sample shows at least one usage pattern for one of the following API elements:
 * static Cipher getInstance(String transformation)
 * static Cipher getInstance(String transformation, Provider provider)
 * static Cipher getInstance(String transformation, String provider)
