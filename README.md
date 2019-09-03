@@ -2,7 +2,9 @@
 
 # TUM Crypto
 
-Security labeled Java code examples for usage patterns of cryptographic APIs. All samples were downloaded from the official Stack Overflow data dump https://archive.org/details/stackexchange.
+Security labeled Java code examples for usage patterns of cryptographic APIs. 
+
+All samples were downloaded from the official Stack Overflow data dump https://archive.org/details/stackexchange. Samples have the following naming scheme `Snippet<postid>_<snippetid>.java`. The `postid` relates to the post id on Stack Overflow where the sample was downloaded from. You can view the related post by visiting the following link `https://stackoverflow.com/questions/<postid>`. `<snippetid>` is the unique id of the code example.
 
 Please create an issue if you want to discuss the label of a particular sample or if you need additional data. We continually update this repo.
 
